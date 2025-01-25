@@ -1,4 +1,4 @@
-export default function DisplayBoard() {
+export default function DisplayBoard({ totalValue }) {
   return (
     <div
       style={{
@@ -8,7 +8,7 @@ export default function DisplayBoard() {
         border: "1px solid gray",
       }}
     >
-      <p style={{ textAlign: "center" }}>Total Score</p>
+      <p style={{ textAlign: "center" }}>Total Score is {totalValue}</p>
     </div>
   );
 }

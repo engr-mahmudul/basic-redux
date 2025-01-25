@@ -1,4 +1,4 @@
-export default function Counters() {
+export default function Counters({ item, handleDecriment, handleIncriment }) {
   return (
     <div
       style={{
@@ -8,10 +8,30 @@ export default function Counters() {
         border: "1px solid gray",
       }}
     >
-      <p style={{ textAlign: "center" }}>Value</p>
+      <p style={{ textAlign: "center" }}>{item.value}</p>
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <button>Increment</button>
-        <button>Decrement</button>
+        <button
+          style={{
+            backgroundColor: "green",
+            color: "white",
+            padding: "7px",
+            borderRadius: "10px",
+          }}
+          onClick={() => handleIncriment(item.id)}
+        >
+          Increment
+        </button>
+        <button
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            padding: "7px",
+            borderRadius: "10px",
+          }}
+          onClick={() => handleDecriment(item.id)}
+        >
+          Decrement
+        </button>
       </div>
     </div>
   );
