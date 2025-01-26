@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [
   {
     id: 1,
-    value: 0,
+    value: 5,
   },
   {
     id: 2,
-    value: 0,
+    value: 1,
   },
 ];
 const countersSlice = createSlice({
@@ -14,18 +14,16 @@ const countersSlice = createSlice({
   initialState,
   reducers: {
     increment: (state, action) => {
-      state.map((obj) => {
-        if (obj.id === action.payload) {
-          obj.value++;
-        }
-      });
+      const counter = state.find((obj) => obj.id === action.payload);
+      if (counter) {
+        counter.value++; // Directly mutate the object
+      }
     },
     decrement: (state, action) => {
-      state.map((obj) => {
-        if (obj.id === action.payload) {
-          obj.value--;
-        }
-      });
+      const counter = state.find((obj) => obj.id === action.payload);
+      if (counter) {
+        counter.value--; // Directly mutate the object
+      }
     },
   },
 });
